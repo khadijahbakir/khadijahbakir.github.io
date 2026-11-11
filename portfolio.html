@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khadijah Al-Bakir | Data Engineering Student & AWS Cloud Learner</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navyBg: '#0b1329',
+                        navyCard: '#131e3a',
+                        navyBorder: '#1e2d54',
+                        cyanAccent: '#00F0FF',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b1329;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* Custom Cyan to Blue Gradient Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b1329;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #00F0FF 0%, #3b82f6 100%);
+            border-radius: 9999px;
+            border: 2px solid #0b1329;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #38ef7d 0%, #00F0FF 100%);
+        }
+
+        /* Pill Header Logo Badge */
+        .pill-badge {
+            background-color: #00F0FF;
+            color: #0b1329;
+            border-radius: 9999px;
+            padding: 0.5rem 1.25rem;
+            font-weight: 800;
+        }
+
+        /* Gradient Button */
+        .gradient-btn {
+            background: linear-gradient(90deg, #00F0FF 0%, #2563eb 100%);
+            color: #0b1329;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 240, 255, 0.25);
+        }
+        .gradient-btn:hover {
+            opacity: 0.95;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 240, 255, 0.4);
+        }
+
+        /* Bordered Pill Button */
+        .pill-btn {
+            border: 1.5px solid #00F0FF;
+            border-radius: 9999px;
+            padding: 0.55rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: #ffffff;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .pill-btn:hover {
+            background-color: #00F0FF;
+            color: #0b1329;
+            transform: translateY(-1.5px);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+        }
+
+        /* Card Outlines */
+        .outlined-card {
+            border: 1.5px solid #1e2d54;
+            border-radius: 1.5rem;
+            transition: all 0.3s ease;
+            background-color: #131e3a;
+        }
+        .outlined-card:hover {
+            border-color: #00F0FF;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(0, 240, 255, 0.15);
+        }
+
+        /* Project Card Focus Effect */
+        .project-card {
+            border: 1.5px solid #1e2d54;
+            border-radius: 1.5rem;
+            transition: all 0.3s ease;
+            background: #131e3a;
+        }
+        .project-card:hover {
+            background: #1e2d54;
+            border-color: #00F0FF;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 240, 255, 0.2);
+        }
+        .project-card:hover h3, 
+        .project-card:hover p {
+            color: #ffffff;
+        }
+
+        /* Active Navigation Line */
+        .nav-item.active {
+            font-weight: 700;
+            color: #00F0FF;
+            border-bottom: 2px solid #00F0FF;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-cyan-500 selection:text-slate-900">
+
+    <!-- ================= HEADER / NAVBAR ================= -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0b1329]/90 backdrop-blur-md border-b border-[#1e2d54]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Pill Logo -->
+                <a href="#home" class="pill-badge text-sm sm:text-base tracking-tight hover:opacity-90 transition-opacity">
+                    Khadijah
+                </a>
+
+                <!-- Nav Links -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-item text-slate-300 hover:text-cyan-400 text-sm font-medium py-1 transition-colors">About</a>
+                    <a href="#experience" class="nav-item text-slate-300 hover:text-cyan-400 text-sm font-medium py-1 transition-colors">Experience</a>
+                    <a href="#projects" class="nav-item text-slate-300 hover:text-cyan-400 text-sm font-medium py-1 transition-colors">Projects</a>
+                    <a href="#contact" class="nav-item text-slate-300 hover:text-cyan-400 text-sm font-medium py-1 transition-colors">Contact</a>
+                </nav>
+
+                <!-- Visit GitHub Button -->
+                <a href="https://github.com" target="_blank" class="gradient-btn px-6 py-2.5 rounded-full font-bold text-xs sm:text-sm tracking-wide">
+                    Visit GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24">
+
+        <!-- ================= HERO / ABOUT SECTION ================= -->
+        <section id="about" class="min-h-[80vh] flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 items-center w-full">
+                
+                <!-- Left: Profile Avatar Image strictly in a circle -->
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full border-4 border-[#00F0FF] shadow-[0_0_25px_rgba(0,240,255,0.3)] overflow-hidden flex-shrink-0">
+                        <img src="profile.jpg" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=80';" 
+                             alt="Khadijah Al-Bakir Profile Picture" 
+                             class="w-full h-full object-cover object-center rounded-full block">
+                    </div>
+                </div>
+
+                <!-- Right: Intro Bio -->
+                <div class="md:col-span-7 text-center md:text-left space-y-4">
+                    <span class="text-sm font-semibold text-cyan-400 tracking-wide uppercase">Hi, I'm</span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+                        Khadijah Al-Bakir
+                    </h1>
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-300">
+                        Data Engineering Student & AWS Cloud Learner
+                    </h2>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl mx-auto md:mx-0">
+                        Undergraduate at Universiti Teknologi Malaysia (UTM) passionate about building scalable data pipelines, cloud architecture, and modern web solutions.
+                    </p>
+
+                    <!-- Buttons -->
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
+                        <a href="#contact" class="pill-btn">
+                            Download CV
+                        </a>
+                        <a href="#contact" class="pill-btn">
+                            Contact
+                        </a>
+                    </div>
+
+                    <!-- Social Media Links -->
+                    <div class="flex items-center justify-center md:justify-start gap-4 pt-4">
+                        <a href="https://github.com" target="_blank" class="w-10 h-10 rounded-full border border-[#1e2d54] bg-[#131e3a] flex items-center justify-center text-slate-300 hover:bg-[#00F0FF] hover:text-[#0b1329] transition-all text-lg">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/khadijah-al-bakir-0a5487443" target="_blank" class="w-10 h-10 rounded-full border border-[#1e2d54] bg-[#131e3a] flex items-center justify-center text-slate-300 hover:bg-[#00F0FF] hover:text-[#0b1329] transition-all text-lg">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= EXPERIENCE SECTION ================= -->
+        <section id="experience" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-[#1e2d54]">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-white mb-12">
+                Experience & Skills
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- 2x2 Grid Cards -->
+                <div class="lg:col-span-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    
+                    <!-- Card 1 -->
+                    <div class="outlined-card p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-2xl text-cyan-400 mb-3">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </div>
+                            <h3 class="font-bold text-white text-lg mb-1">AWS Cloud & Infrastructure</h3>
+                            <span class="text-xs font-semibold text-cyan-400 block mb-3">Hands-on Learner</span>
+                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                                Core services exploration including AWS S3, EC2 instances, IAM configurations, and cloud deployment basics.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="outlined-card p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-2xl text-cyan-400 mb-3">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <h3 class="font-bold text-white text-lg mb-1">Data Engineering</h3>
+                            <span class="text-xs font-semibold text-cyan-400 block mb-3">UTM Degree Program</span>
+                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                                Database design, SQL query optimization, Python data processing, and foundational ETL workflows.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="outlined-card p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-2xl text-cyan-400 mb-3">
+                                <i class="fa-solid fa-code-branch"></i>
+                            </div>
+                            <h3 class="font-bold text-white text-lg mb-1">Git & Version Control</h3>
+                            <span class="text-xs font-semibold text-cyan-400 block mb-3">Core Tooling</span>
+                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                                Managing repositories, branching strategies, commit history, and GitHub project collaboration.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="outlined-card p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="text-2xl text-cyan-400 mb-3">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <h3 class="font-bold text-white text-lg mb-1">Developer Tools</h3>
+                            <span class="text-xs font-semibold text-cyan-400 block mb-3">Environment</span>
+                            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                                VS Code extensions, Linux terminal navigation, Markdown documentation, and web front-end basics.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= RECENT PROJECTS SECTION ================= -->
+        <section id="projects" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-[#1e2d54]">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-white mb-12">
+                Recent Projects
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="project-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-44 rounded-xl bg-[#0b1329] border border-[#1e2d54] flex items-center justify-center text-white mb-6 p-4 text-center overflow-hidden">
+                            <i class="fa-solid fa-cloud-arrow-up text-4xl text-cyan-400"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-white mb-2">Industry Talk 1</h3>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+                            Creative Thinking
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-3 pt-4">
+                        <a href="#" class="btn-project pill-btn w-1/2 text-xs py-2">
+                            Live Demo
+                        </a>
+                        <a href="https://github.com" target="_blank" class="btn-project pill-btn w-1/2 text-xs py-2">
+                            GitHub Repo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-44 rounded-xl bg-[#0b1329] border border-[#1e2d54] flex items-center justify-center text-white mb-6 p-4 text-center overflow-hidden">
+                            <i class="fa-solid fa-diagram-project text-4xl text-cyan-400"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-white mb-2">Data Pipeline Lab</h3>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+                            Python ETL script ingesting open dataset, performing data transformations, and storing in SQL database.
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-3 pt-4">
+                        <a href="#" class="btn-project pill-btn w-1/2 text-xs py-2">
+                            Live Demo
+                        </a>
+                        <a href="https://github.com" target="_blank" class="btn-project pill-btn w-1/2 text-xs py-2">
+                            GitHub Repo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-44 rounded-xl bg-[#0b1329] border border-[#1e2d54] flex items-center justify-center text-white mb-6 p-4 text-center overflow-hidden">
+                            <i class="fa-solid fa-graduation-cap text-4xl text-cyan-400"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-white mb-2">UTM Course Work</h3>
+                        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+                            Repository containing data structures, algorithms assignments, and database management system labs.
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-3 pt-4">
+                        <a href="#" class="btn-project pill-btn w-1/2 text-xs py-2">
+                            Live Demo
+                        </a>
+                        <a href="https://github.com" target="_blank" class="btn-project pill-btn w-1/2 text-xs py-2">
+                            GitHub Repo
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= CONTACT SECTION ================= -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-8">
+                Contact Me
+            </h2>
+
+            <!-- Contact Input Box -->
+            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                <div class="relative w-full max-w-xl mx-auto">
+                    <div class="flex items-center border-2 border-[#00F0FF] bg-[#131e3a] rounded-full overflow-hidden p-1.5 focus-within:ring-2 focus-within:ring-cyan-400">
+                        <i class="fa-regular fa-envelope text-cyan-400 text-xl pl-4 pr-2"></i>
+                        <input type="email" required placeholder="example@email.com" class="w-full py-2.5 px-2 bg-transparent text-white placeholder-slate-400 focus:outline-none text-sm font-medium">
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="pill-btn px-8 py-2.5 text-xs uppercase tracking-wider">
+                        Submit
+                    </button>
+                </div>
+            </form>
+
+            <div id="contact-toast" class="hidden mt-6 p-3 rounded-xl bg-[#00F0FF] text-[#0b1329] font-bold text-xs max-w-md mx-auto shadow-lg">
+                <i class="fa-solid fa-check-circle mr-2"></i> Thank you! Message submitted successfully.
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="border-t border-[#1e2d54] py-10 text-center text-slate-400 text-xs sm:text-sm bg-[#0b1329]">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col items-center gap-6">
+            
+            <!-- Footer Links -->
+            <div class="flex items-center gap-8">
+                <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+                <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+                <a href="https://www.linkedin.com/in/khadijah-al-bakir-0a5487443" target="_blank" class="hover:text-cyan-400 transition-colors">LinkedIn</a>
+            </div>
+
+            <!-- Copyright -->
+            <p>© All Rights Reserved | Khadijah Al-Bakir</p>
+        </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        // Form submit toast
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const toast = document.getElementById('contact-toast');
+            toast.classList.remove('hidden');
+            e.target.reset();
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+
+        // Active Navigation Scroll Highlighting
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
